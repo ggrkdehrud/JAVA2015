@@ -23,7 +23,7 @@ public class CMain {
 	public static Scanner scan=new Scanner(System.in);
 	
 	public static void main(String args[]) throws IOException{
-		
+		//荐历历绢绢历军军绢沥历军军军绢沥历军军军军绢沥历军绢历绢
 		//肺弊牢
 		CLoginView loginView=new CLoginView();
 		CMember member=loginView.login();
