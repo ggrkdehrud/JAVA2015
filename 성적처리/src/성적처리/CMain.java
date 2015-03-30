@@ -7,6 +7,7 @@ import java.util.Scanner;
 import DAO.CGangjwaDAO;
 import DAO.CGwamokDAO;
 import DAO.CMemberDAO;
+import DAO.DAO;
 import view.CGangjwaView;
 import view.CGwmaokView;
 import view.CLoginView;
@@ -31,9 +32,9 @@ public class CMain {
 		CLoginControl loginControl=new CLoginControl();
 		member = loginControl.login(member); //UserID와 password를 가지고있다.
 		
-		CMemberDAO memberDAO = new CMemberDAO();
-		memberDAO.write(member);
-		member=memberDAO.read(member);
+		DAO memberDAO = new DAO();
+		memberDAO.write(member,"member");
+		member=(CMember)memberDAO.read("member");
 		member.showMember();
 		
 		//과목개설
@@ -43,8 +44,9 @@ public class CMain {
 		CGwmaokControl gwamokControl=new CGwmaokControl();
 		gwamok=gwamokControl.getGwamok(gwamok);
 		
-		CGwamokDAO gwamokDAO=new CGwamokDAO();
-		gwamokDAO.write(gwamok);
+		DAO gwamokDAO=new DAO();
+		gwamokDAO.write(gwamok,"gwamok");
+		gwamok = (CGwamok) gwamokDAO.read("gwamok");
 		
 		//강좌개설
 		CGangjwaView gangjwaView=new CGangjwaView();
@@ -53,7 +55,8 @@ public class CMain {
 		CGangjwaControl gangjwaControl=new CGangjwaControl();
 		gangjwa=gangjwaControl.getGangjwa(gangjwa);
 		
-		CGangjwaDAO gangjwaDAO=new CGangjwaDAO();
-		gangjwaDAO.write(gangjwa);
+		DAO gangjwaDAO=new DAO();
+		gangjwaDAO.write(gangjwa,"gangjwa");
+		gangjwa = (CGangjwa) gangjwaDAO.read("gangjwa");
 	}
 }

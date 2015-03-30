@@ -1,8 +1,13 @@
 package entity;
+
+import java.io.Serializable;
+
 //value object
 //데이터를 저장하기 위한 클래스(별로 하는일은 없다).
 //Entity class or Value class
-public class CMember {
+public class CMember implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	//attributes
 	private String userID;
 	private String password;
