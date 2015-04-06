@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 
 import entity.CGangjwa;
 
-public class DAO {
+public class ObjectDAO implements IDAO{
 	public Object read(String fileName){
 		Object object=null;
 		try {
@@ -35,5 +35,11 @@ public class DAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Object read(Class clazz, String fileName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

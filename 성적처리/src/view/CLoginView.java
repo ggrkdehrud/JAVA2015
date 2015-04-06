@@ -9,7 +9,7 @@ public class CLoginView {
 	public CMember login() {
 		System.out.println("ID : ");
 //		String userID=CMain.scan.nextLine();
-		String userID="userID";
+		String userID="ggrkdehrud";
 		System.out.println("Password : ");
 //		String password=CMain.scan.nextLine();
 		String password="123";

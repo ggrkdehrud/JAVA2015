@@ -4,27 +4,28 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import DAO.CGangjwaDAO;
-import DAO.CGwamokDAO;
-import DAO.CMemberDAO;
-import DAO.DAO;
+
+import DAO.IDAO;
+import DAO.ObjectDAO;
 import view.CGangjwaView;
 import view.CGwmaokView;
 import view.CLoginView;
+import view.CSugangView;
 import control.CGangjwaControl;
 import control.CGwmaokControl;
 import control.CLoginControl;
+import control.CSugangControl;
 import entity.CGangjwa;
 import entity.CGwamok;
 import entity.CGyosu;
 import entity.CMember;
+import entity.CSugang;
 
 public class CMain {
 	
 	public static Scanner scan=new Scanner(System.in);
 	
 	public static void main(String args[]) throws IOException{
-		//荐历历绢绢历军军绢沥历军军军绢沥历军军军军绢沥历军绢历绢
 		//肺弊牢
 		CLoginView loginView=new CLoginView();
 		CMember member=loginView.login();
@@ -32,11 +33,11 @@ public class CMain {
 		CLoginControl loginControl=new CLoginControl();
 		member = loginControl.login(member); //UserID客 password甫 啊瘤绊乐促.
 		
-		DAO memberDAO = new DAO();
-		memberDAO.write(member,"member");
-		member=(CMember)memberDAO.read("member");
+		IDAO memberDAO = new ObjectDAO();
+//		memberDAO.write(member,"member");
+//		member=(CMember)memberDAO.read(member.getClass(),"member");
 		member.showMember();
-		
+		/*
 		//苞格俺汲
 		CGwmaokView gwamokView=new CGwmaokView();
 		CGwamok gwamok=gwamokView.getGwamok();
@@ -44,7 +45,7 @@ public class CMain {
 		CGwmaokControl gwamokControl=new CGwmaokControl();
 		gwamok=gwamokControl.getGwamok(gwamok);
 		
-		DAO gwamokDAO=new DAO();
+		IDAO gwamokDAO=new ObjectDAO();
 		gwamokDAO.write(gwamok,"gwamok");
 		gwamok = (CGwamok) gwamokDAO.read("gwamok");
 		
@@ -55,8 +56,19 @@ public class CMain {
 		CGangjwaControl gangjwaControl=new CGangjwaControl();
 		gangjwa=gangjwaControl.getGangjwa(gangjwa);
 		
-		DAO gangjwaDAO=new DAO();
+		IDAO gangjwaDAO=new ObjectDAO();
 		gangjwaDAO.write(gangjwa,"gangjwa");
 		gangjwa = (CGangjwa) gangjwaDAO.read("gangjwa");
+		
+		//荐碍脚没
+		CSugangView sugangView=new CSugangView();
+		CSugang sugang=sugangView.getSugang(member,gangjwa);
+		
+		CSugangControl sugangControl=new CSugangControl();
+		sugang=sugangControl.getSugang(sugang);
+		
+		CSugangDAO sugangDAO=new CSugangDAO();
+		sugangDAO.write(sugang);
+		*/
 	}
 }

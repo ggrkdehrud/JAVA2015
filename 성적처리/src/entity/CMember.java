@@ -1,10 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
-//value object
-//데이터를 저장하기 위한 클래스(별로 하는일은 없다).
-//Entity class or Value class
+
 public class CMember implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -31,6 +30,13 @@ public class CMember implements Serializable{
 	public String getPassword() {
 		return password;
 	}
+	
+	void read(Scanner scan){
+		userID = scan.next();
+		password = scan.next();
+	};
+	
+	void write(){};
 }
 
 //생성자 없애고 모두 set,get 으로만 처리한다.
